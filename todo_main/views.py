@@ -4,7 +4,8 @@ from todos.models import Task
 
 
 def home(request):
-    tasks = Task.objects.filter(is_completed=False)
+    # Use '-updated_at' for descending order and 'updated_at' for ascending order
+    tasks = Task.objects.filter(is_completed=False).order_by('-updated_at') 
     context = {
         'tasks': tasks
     }
